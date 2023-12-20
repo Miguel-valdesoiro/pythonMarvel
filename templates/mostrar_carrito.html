@@ -1,0 +1,125 @@
+<!-- mostrar_carrito.html -->
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <!-- Agrega la referencia al archivo de estilos si es necesario -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='mostrar.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+</head>
+<body class="mostar_carrito-page">
+<main class="container p-4">
+    <h1 class="display-4 text-center mt-4 titulo">Carrito de Compras</h1>
+
+    <div class="row">
+        <div class="col-md-4 offset-md-4 my-auto">
+            <div class="card">
+                <!-- Resto de tu código HTML ... -->
+                <ul>
+                    {% for item in carrito %}
+                        <!-- Resto de tu código ... -->
+                    {% endfor %}
+
+                    <p>Total: ${{ total }}</p>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button class="vaciar-carrito-btn" value="producto_id">Vaciar Carrito</button>
+    <a href="{{ url_for('login') }}">Volver a la tienda</a>
+    <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2023 Tienda de Marvel, Inc</span>
+
+<!-- mostrar_carrito.html -->
+<!-- ... (Resto del HTML) ... -->
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+            <script>
+                console.log( "Entro en 1" )
+                 $('.agregar-carrito-btn').click(function() {
+                    var productoId = $(this).data('producto-id');
+                    var cantidad = 1;  // Puedes ajustar esto según tus necesidades
+                console.log( "Entro en 3" )
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/agregar_al_carrito',
+                        data: {'producto_id': productoId, 'cantidad': cantidad},
+                        success: function(response) {
+                            alert(response.message);
+                            console.log( "Entro 2" )
+                            // Actualizar la interfaz de usuario con la información del carrito
+                            $('#total-carrito').text('Total: $' + response.total);
+                        },
+                        error: function(error) {
+                            console.error('Error al agregar al carrito:', error);
+                        }
+                    });
+                });
+                // Agregar evento para el botón de agregar al carrito
+                $('.agregar-carrito-btn').click(function() {
+                    var productoId = $(this).data('producto-id');
+                    var cantidad = 1;  // Puedes ajustar esto según tus necesidades
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/agregar_al_carrito',
+                        data: {'producto_id': productoId, 'cantidad': cantidad},
+                        success: function(response) {
+                            alert(response.message);
+                            // Actualizar la interfaz de usuario con la información del carrito
+                            $('#total-carrito').text('Total: $' + response.total);
+                        },
+                        error: function(error) {
+                            console.error('Error al agregar al carrito:', error);
+                        }
+                    });
+                });
+
+                // ... (Otros eventos)
+
+            </script>
+
+
+
+            <script>
+                // ... (Código jQuery existente)
+
+                // Agregar evento para el botón de eliminar
+                $('.eliminar-producto-btn').click(function() {
+                    var productoId = $(this).data('producto-id');
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/eliminar_del_carrito/' + productoId,
+                        success: function(response) {
+                            alert(response.message);
+                            // Actualizar la interfaz de usuario con la información del carrito
+                            $('#total-carrito').text('Total: $' + response.total);
+                            // Recargar la página o actualizar la lista de productos en el carrito
+                            location.reload();
+                        },
+                        error: function(error) {
+                            console.error('Error al eliminar del carrito:', error);
+                        }
+                    });
+                });
+
+
+            </script>
+
+<!-- ... (Resto del HTML) ... -->
+        </main>
+
+    </body>
+
+</html>

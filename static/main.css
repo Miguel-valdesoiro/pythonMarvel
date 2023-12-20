@@ -1,0 +1,109 @@
+/* main.css */
+
+body {
+    background: url('/static/img/marvel-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.white-text {
+    color: #fff; /* Color blanco para el texto con la clase personalizada */
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.header {
+    margin-bottom: 30px;
+    color: #fff; /* Color del texto para el encabezado */
+}
+
+.text-muted {
+    color: #fff; /* Color del texto para el subtítulo */
+}
+
+.main-section {
+    margin: 0 auto;
+    margin-top: 40%;
+    padding: 2;
+}
+
+.modal-content {
+    background-color: #3b4643;
+    opacity: 0.97;
+    padding: 0 20px;
+    box-shadow: 0px 0px 3px #848459;
+}
+.user-img {
+    margin-top: -50px;
+    margin-bottom: 50px;
+}
+
+.user-img img {
+    width: 100px;
+    height: 130px;
+    box-shadow: 0px 0px 3px #848484;
+    border-radius: 50%;
+}
+
+
+.form-group input {
+    height: 42px;
+    font-size: 18px;
+    border: 0;
+    padding-left: 54px;
+    border-radius: 5px;
+}
+
+.form-group::before {
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    left: 28px;
+    font-size: 22px;
+    padding-top: 4px;
+}
+
+button {
+    width: 100%;
+    margin: 5px 0 25px;
+}
+
+.forgot {
+    padding: 5px 0;
+}
+
+.forgot a {
+    color: white;
+}
+
+body {
+   background-color: black; /* Cambia el color de fondo si es necesario */
+   color: white; /* Cambia el color del texto principal si es necesario */
+
+}
+.copyright {
+      color: white; /* Cambia el color del texto de copyright */
+}
+
+
+/* Estilos personalizados para el footer */
+.footer-custom {
+  background-color: #fff; /* Fondo blanco que cubre horizontalmente */
+  padding: 10px 0; /* Ajusta el padding según tus necesidades */
+  position: fixed; /* Mantiene el footer en su posición, no se moverá al desplazarse */
+  bottom: 0;
+  left: 0;
+  right: 0; /* Cubre horizontalmente */
+  width: 100%;
+  display: flex;
+  align-items: center; /* Para centrar verticalmente el contenido */
+}
+
+/* Opcional: Estilos para los íconos (puedes personalizarlos según tus necesidades) */
+.footer-custom .nav li {
+  list-style: none;
+  display: inline;
+  margin-right: 10px; /* Ajusta el margen entre los íconos */
+}
+
+

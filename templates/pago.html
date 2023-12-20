@@ -1,0 +1,109 @@
+<!-- pago.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago</title>
+<link href="/docs/5.3/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='tarjeta.css') }}">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+</head>
+<body>
+     <div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="{{ url_for('comprar_resultado') }}" method="POST" id="payment-form">
+
+        <div class="row">
+          <div class="col-50">
+            <h3>Formulario de Pago</h3>
+            <label for="fname"><i class="fa fa-user"></i> Nombre completo</label>
+            <input type="text" id="fname" name="firstname" marcador de posición="miguel valdesoiro">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" marcador de posición="miguel@gmail.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Direccion</label>
+            <input type="text" id="adr" name="address" marcador de posición="Pilar nº35">
+            <label for="city"><i class="fa fa-institution"></i>Ciudad</label>
+            <input type="text" id="city" name="city" marcador de posición="Madrid">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">Provincia</label>
+                <input type="text" id="state" name="state" marcador de posición="Madrid">
+              </div>
+              <div class="col-50">
+                <label for="zip">Zip</label>
+                <input type="text" id="zip" name="zip" marcador de posición="10001">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>Pago</h3>
+            <label for="fname">Tarjetas aceptadas</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Nombre en la tarjeta</label>
+            <input type="text" id="cname" name="cardname" placeholder="miguel valdesoiro">
+            <label for="ccnum">Número de Tarjeta de Crédito</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="123-123-123-123">
+            <label for="expmonth">Caducidad</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="16/10">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Año de caducidad</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2030">
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123">
+              </div>
+            </div>
+          </div>
+        <button type="submit" class="btn btn-primary">comprar</button>
+          <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2023 Tienda de Marvel, Inc</span>
+        </form>
+    </div>
+  </div>
+
+</div>
+
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Agrega la biblioteca de Stripe y scripts necesarios -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Configura la clave pública de Stripe y crea un elemento de tarjeta
+        var stripe = Stripe('tu_clave_publica_de_stripe');
+        var elements = stripe.elements();
+        var cardElement = elements.create('card');
+        cardElement.mount('#card-element');
+
+        var form = document.getElementById('payment-form');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Procesa el pago cuando se envía el formulario
+            stripe.confirmCardPayment(
+                '{{ client_secret }}',
+                { payment_method: { card: cardElement } }
+            ).then(function (result) {
+                if (result.error) {
+                    // Muestra errores al usuario
+                    alert(result.error.message);
+                } else {
+                    // Redirecciona al usuario a la página de pago exitoso
+                    window.location.href = '{{ url_for("pago_exitoso") }}';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

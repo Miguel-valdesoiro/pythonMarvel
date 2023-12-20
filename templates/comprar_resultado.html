@@ -1,0 +1,39 @@
+<!-- comprar_resultado.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de la Compra</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='comprar.css') }}">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <!-- Agrega aquí tus enlaces a CSS o estilos específicos si es necesario -->
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+        <h1>Resultado de la Compra</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-{{ messages[0].category }}" role="alert">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% if static_url %}
+            <img src="{{ url_for('static', filename='imgmarvel/cmp.jpg') }}" alt="Resultado de compra" style="max-width: 50%;">
+        {% endif %}
+
+        {% if resultado_compra == 'Gracias por tu compra' %}
+            <p>¡Gracias por tu compra!</p>
+        {% elif resultado_compra == 'Error al procesar la comprar' %}
+            <p>Error al procesar la compra. Por favor, inténtalo de nuevo.</p>
+        {% endif %}
+
+        <!-- Puedes agregar más contenido o estilos según tus necesidades -->
+    </div>
+</body>
+ <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2023 Tienda de Marvel, Inc</span>
+</html>

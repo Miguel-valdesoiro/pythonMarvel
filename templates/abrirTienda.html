@@ -1,0 +1,420 @@
+<!--abrirTienda.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos a tienda Marvel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='carrito.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+</head>
+<body class="abrirTienda-page">
+  <nav class="navbar bg-body-tertiary">
+   <div class="container-fluid">
+    <a class="navbar-brand">Tienda de Marvel</a>
+       <div class="col d-flex justify-content-center p-0 gap-4">
+          <a href="#comics" class=" border border-1 border-black d-flex gap-1 align-items-center rounded p-1 text-decoration-none">
+            <img
+                    src="static/img/comic-book.png"
+                    alt="comics"
+                    style="width:25px; height: 25px;"
+            >
+            <span class="fs-4 text-dark-emphasis">comics</span>
+          </a>
+
+        </div>
+            <div class="col d-flex justify-content-center p-0">
+          <a href="#Peliculas" class=" border border-1 border-black d-flex gap-1 align-items-center rounded p-1 text-decoration-none">
+            <img
+                    src="static/img/video-camera.png"
+                    alt="Peliculas"
+                    style="width:25px; height: 25px;"
+            >
+            <span class="fs-4 text-dark-emphasis">Peliculas</span>
+          </a>
+
+        </div>
+             <div class="col d-flex justify-content-center p-0 gap-4">
+          <a href="#Merchandising" class=" border border-1 border-black d-flex gap-1 align-items-center rounded p-1 text-decoration-none">
+            <img
+                    src="static/img/box.png"
+                    alt="Merchandising"
+                    style="width:25px; height: 25px;"
+            >
+            <span class="fs-4 text-dark-emphasis">Merchandising</span>
+          </a>
+        </div>
+
+        </div>
+
+       <div class="container" id="categorias">
+       <section  id="comics">
+        <h3 class="display-1" style="font-size: 2.5em; font-weight: bold; color: silver; text-shadow: 2px 2px 2px black;">Comics</h3>
+       <div class="producto_id"></div>
+       <div class="lista de agregar al carrito"></div>
+        <div class="grid">
+               <div class="items">
+                   <img src="static/imgmarvel/comic_1.jpg">
+                   <div class="info">
+                       <h3>Capitan America º1</h3>
+                       <p>Stan Lee, 02/12/1941</p>
+                       <div class="precio">
+                           <p>34,50 €</p>
+                           <p>15 €</p>
+                       </div>
+
+                    <form class="agregar-carrito-form" method="post" action="{{ url_for('abrirTienda') }}">
+                        <input type="hidden" name="producto_id" value="1">  <!-- Ajusta según la lógica de tu aplicación -->
+                        <button type="submit">Agregar al Carrito</button>
+                    </form>
+
+                         <form method="post" action="{{ url_for('comprar') }}">
+                              <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                              <button type="submit">Comprar</button>
+                         </form>
+                   </div>
+               </div>
+               <div class="items">
+                   <img src="static/imgmarvel/comic_2.jpg">
+                   <div class="info">
+                       <h3>El Invencible Iror Man</h3>
+                       <p>Joe Simon, 05/06/1964</p>
+                       <div class="precio">
+                           <p>37,75 € </p>
+                           <p>15 €</p>
+                       </div>
+                       <form class="agregar-carrito-form" method="post" action="{{ url_for('abrirTienda') }}">
+                        <input type="hidden" name="producto_id" value="1">  <!-- Ajusta según la lógica de tu aplicación -->
+                        <button type="submit">Agregar al Carrito</button>
+                    </form>
+                       <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                       </form>
+                   </div>
+               </div>
+                 <div class="items">
+                   <img src="static/imgmarvel/comic_3.jpg">
+                   <div class="info">
+                       <h3>El Poderoso Thor</h3>
+                       <p>Jock Kirdy, 03/06/1962</p>
+                       <div class="precio">
+                           <p>20,50 €</p>
+                           <p>15 €</p>
+                       </div>
+                         <form class="agregar-carrito-form" method="post" action="{{ url_for('abrirTienda') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Ajusta según la lógica de tu aplicación -->
+                           <button type="submit">Agregar al Carrito</button>
+                         </form>
+                      <form method="post" action="{{ url_for('comprar') }}">
+                          <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                          <button type="submit">Comprar</button>
+                      </form>
+                   </div>
+               </div>
+               <div class="items">
+                   <img src="static/imgmarvel/comic_4.jpg">
+                   <div class="info">
+                       <h3> El Increible Hulk</h3>
+                       <p>Stan Lee, 13/05/1962</p>
+                       <div class="precio">
+                           <p>25,50 €</p>
+                           <p>15 €</p>
+                       </div>
+                        <form class="agregar-carrito-form" method="post" action="{{ url_for('abrirTienda') }}">
+                          <input type="hidden" name="producto_id" value="1">  <!-- Ajusta según la lógica de tu aplicación -->
+                          <button type="submit">Agregar al Carrito</button>
+                        </form>
+                        <form method="post" action="{{ url_for('comprar') }}">
+                          <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                          <button type="submit">Comprar</button>
+                        </form>
+                   </div>
+               </div>
+               <div class="items">
+                   <img src="static/imgmarvel/comic_5.jpg">
+                   <div class="info">
+                       <h3>Ojo de Halcon:Reino Oscuro</h3>
+                       <p>Andy Diggle, 20/02/2010</p>
+                       <div class="precio">
+                           <p>31,75 €</p>
+                           <p>15 €</p>
+                       </div>
+                        <form class="agregar-carrito-form" method="post" action="{{ url_for('abrirTienda') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Ajusta según la lógica de tu aplicación -->
+                           <button type="submit">Agregar al Carrito</button>
+                        </form>
+                         <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                         </form>
+                   </div>
+               </div>
+                 <div class="items">
+                   <img src="static/imgmarvel/comic_6.jpg">
+                   <div class="info">
+                       <h3>Viuda Negra:Las cosas que dicen de alla</h3>
+                       <p>Sena Pillips, 20/08/2020</p>
+                       <div class="precio">
+                           <p>20,15 €</p>
+                           <p>15 €</p>
+                       </div>
+                           <form class="agregar-carrito-form" method="post" action="{{ url_for('abrirTienda') }}">
+                              <input type="hidden" name="producto_id" value="1">  <!-- Ajusta según la lógica de tu aplicación -->
+                              <button type="submit">Agregar al Carrito</button>
+                           </form>
+                         <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                         </form>
+                   </div>
+               </div>
+           </div>
+       </section>
+        <section class="" id="Peliculas">
+    <h3 class="display-1" style="font-size: 2.5em; font-weight: bold; color: silver; text-shadow: 2px 2px 2px black;">Peliculas</h3>
+   <div class="row gx-4 gx-lg-5 row">
+          <div class="grid">
+               <div class="items">
+                   <img src="static/imgmarvel/peli_1.jpg">
+                   <div class="info">
+                       <h3>Capitán America: El primer vengador</h3>
+                       <p>Joe Johnston,	2h 4m</p>
+                       <div class="precio">
+                           <p>15,80 € </p>
+                           <p>9,95</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                          <form method="post" action="{{ url_for('comprar') }}">
+                            <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                            <button type="submit">Comprar</button>
+                          </form>
+                   </div>
+               </div>
+               <div class="items">
+                   <img src="static/imgmarvel/peli_2.jpg">
+                   <div class="info">
+                       <h3>Capitana Marvel</h3>
+                       <p>Anna Boden, 2h 9m</p>
+                       <div class="precio">
+                           <p>11,99 €</p>
+                           <p>9,95</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                        <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                        </form>
+                   </div>
+               </div>
+                 <div class="items">
+                   <img src="static/imgmarvel/peli_3.jpg">
+                   <div class="info">
+                       <h3>Iror Man: El hombre de acero</h3>
+                       <p>Jon Favreau, 2h 7m</p>
+                       <div class="precio">
+                           <p>11,99 €</p>
+                           <p>9,95</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                        <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                        </form>
+                   </div>
+               </div>
+               <div class="items">
+                   <img src="static/imgmarvel/peli_4.jpg">
+                   <div class="info">
+                       <h3> El Increible Hulk</h3>
+                       <p>Louis Leterrier, 1h 52m</p>
+                       <div class="precio">
+                           <p>11,99</p>
+                           <p>9,95</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                        <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                        </form>
+                   </div>
+               </div>
+               <div class="items">
+                   <img src="static/imgmarvel/peli_5.jpg">
+                   <div class="info">
+                       <h3>El Poderoso Thor</h3>
+                       <p>Kennetn Branagh, 1h 57m</p>
+                       <div class="precio">
+                           <p>10,50 €</p>
+                           <p>9,95</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                        <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                        </form>
+                   </div>
+               </div>
+                 <div class="items">
+                   <img src="static/imgmarvel/peli_6.jpg">
+                   <div class="info">
+                       <h3>Los Vengadores</h3>
+                       <p>Joss Whedon, 2h 25m</p>
+                       <div class="precio">
+                           <p>11,50 €</p>
+                           <p>9,95</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                          <form method="post" action="{{ url_for('comprar') }}">
+                            <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                            <button type="submit">Comprar</button>
+                          </form>
+                   </div>
+               </div>
+           </div>
+         </section>
+              <section class="" id="Merchandising">
+    <h3 class="display-1" style="font-size: 2.5em; font-weight: bold; color: silver; text-shadow: 2px 2px 2px black;">Merchandising</h3>
+   <div class="row gx-4 gx-lg-5 row">
+          <div class="grid">
+               <div class="items">
+                   <img src="static/imgmarvel/mcd_1.jpg">
+                   <div class="info">
+                       <h3>CamisetaMarvel</h3>
+                       <p>Tallas: S, M, L, XL, XXL</p>
+                       <div class="precio">
+                           <p>20,95 €</p>
+                           <p>12 €</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                          <form method="post" action="{{ url_for('comprar') }}">
+                            <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                            <button type="submit">Comprar</button>
+                          </form>
+                   </div>
+               </div>
+               <div class="items">
+                   <img src="static/imgmarvel/mcd_2.jpg">
+                   <div class="info">
+                       <h3>SudaderasMarvel</h3>
+                       <p>Tallas: S, M, L, XL, XXL</p>
+                       <div class="precio">
+                           <p>29,99 €</p>
+                           <p>12 €</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                        <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                        </form>
+                   </div>
+               </div>
+                 <div class="items">
+                   <img src="static/imgmarvel/mcd_3.jpg">
+                   <div class="info">
+                       <h3>PijamasMarvel</h3>
+                       <p>Tallas: S, M, L, XL, XXL</p>
+                       <div class="precio">
+                           <p>15,95 €</p>
+                           <p>12 €</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                        <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                        </form>
+                   </div>
+               </div>
+               <div class="items">
+                   <img src="static/imgmarvel/mcd_4.jpg">
+                   <div class="info">
+                       <h3>CalcetinesMarvel Set-3</h3>
+                       <p>Clasic Marvel T40/46</p>
+                       <div class="precio">
+                           <p>17,95 €</p>
+                           <p>12 €</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                       <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                       </form>
+                   </div>
+               </div>
+               <div class="items">
+                   <img src="static/imgmarvel/mcd_5.jpg">
+                   <div class="info">
+                       <h3>Peluchemarvel</h3>
+                       <p>Altura:11 cm-30cm</p>
+                       <div class="precio">
+                           <p>20,95 €</p>
+                           <p>12 €</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                        <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                        </form>
+                   </div>
+               </div>
+                 <div class="items">
+                   <img src="static/imgmarvel/mcd_6.jpg">
+                   <div class="info">
+                       <h3>PosterMarvel</h3>
+                       <p>dimesión 91 ancho 61 alto</p>
+                       <div class="precio">
+                           <p>00,00 €</p>
+                           <p>6,95 €</p>
+                       </div>
+                         <button>Agregar al carrito</button>
+                         <form method="post" action="{{ url_for('comprar') }}">
+                           <input type="hidden" name="producto_id" value="1">  <!-- Debes ajustar esto según la lógica de tu aplicación -->
+                           <button type="submit">Comprar</button>
+                         </form>
+                   </div>
+               </div>
+           </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // ...
+
+        function agregarAlCarrito(producto_id) {
+            // Obtener información del producto directamente de la página
+            var nombre = document.getElementById('nombre_producto_' + producto_id).innerText;
+            var precio = parseFloat(document.getElementById('precio_producto_' + producto_id).innerText);
+
+            // Hacer una solicitud al servidor para agregar el producto al carrito
+            fetch(`/agregar_al_carrito/${producto_id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    nombre: nombre,
+                    precio: precio,
+                    // Otros datos que puedas necesitar
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Manejar la respuesta del servidor (puede incluir mensajes de éxito o error)
+                alert(data.message);  // Puedes cambiar esto según tu lógica
+            })
+            .catch(error => {
+                console.error('Error al agregar al carrito:', error);
+            });
+        }
+
+        // ...
+    });
+</script>
+
+
+
+
+  </nav>
+</body>
+</html>

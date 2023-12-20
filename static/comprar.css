@@ -1,0 +1,19 @@
+/* comprar.css */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f3f3;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #222;
+    height: 80vh; /* Ajusta según sea necesario */
+}
+
+container img {
+    max-width: 30%; /* Ajusta según sea necesario */
+    height: auto;
+    margin-right: 20px; /* Espacio entre la imagen y el contenido */
+
+
+}

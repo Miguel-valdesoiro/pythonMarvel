@@ -1,0 +1,60 @@
+/*mostrar.css*/
+
+.mostar_carrito-page .container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Alinea el texto y otros elementos en el centro */
+}
+
+.mostar_carrito-page .container {
+    background-color: #f5f3f3;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #222;
+}
+
+
+.items img {
+    width: 200px; /* ajusta el ancho según tus necesidades */
+    height: auto; /* mantiene la proporción de aspecto original */
+}
+
+/* O si prefieres un tamaño específico para todas las imágenes en la lista */
+.items img {
+    max-width: 130px; /* ajusta el ancho máximo según tus necesidades */
+    height: auto; /* mantiene la proporción de aspecto original */
+}
+/* mostrar.css */
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Crea tres columnas con el mismo ancho */
+    gap: 20px; /* Espacio entre las imágenes */
+}
+
+.items img {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+    height: auto; /* Mantiene la proporción de aspecto original */
+}
+
+eliminar-producto-btn {
+    margin-top: 10px; /* Ajusta la separación entre el texto y el botón de eliminar */
+    /* También puedes ajustar el margen a la derecha o izquierda según sea necesario */
+info button {
+     padding: 1rem;
+     width 100%;
+     background-color: #33c3f0;
+     border: none;
+     outline: none;
+     color: #ffff;
+     text-transform: uppercase;
+     font-size: 1.1rem;
+     border-radius: 5px;
+     cursor:pointer;
+     margin-bottom: 5px;
+}
+.info button:hover{
+     background-color: #2da0c3;
+     transition: all .3s;
+}
